@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
     res.json({ message: "Welcome to the REST API template" });
 });
 
-require("./app/routes/user.routes.js")(app);
+require("./app/routes/destination.routes.js")(app);
 
 // set port, listen for requests
 app.listen(3000, () => {
