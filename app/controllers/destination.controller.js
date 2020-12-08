@@ -1,4 +1,5 @@
 const Destination = require("../models/destination.model.js");
+const Item = require("../models/item.model.js");
 
 // Create & Save a new Destination
 exports.create = (req, res) => {
@@ -107,6 +108,19 @@ exports.delete = (req, res) => {
             }
         } else {
             res.send({ message: "Destination was deleted successfully!" });
+        }
+    });
+};
+
+// Retrieve all Items for a single destination from the database.
+exports.findAllItemsForDestination = (req, res) => {
+    Item.getAllForDestination(req.params.destinationSlug, (err, data) => {
+        if (err) {
+            res.status(500).send({
+                message: err.message || "An error occured while retrieving items.",
+            });
+        } else {
+            res.send(data);
         }
     });
 };

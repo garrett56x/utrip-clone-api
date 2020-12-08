@@ -15,4 +15,7 @@ module.exports = app => {
 
     // Delete a Destination with destinationSlug
     app.delete("/destinations/:destinationSlug", destinations.delete);
+
+    // Retrieve all items for a single Destination
+    app.get("/destinationItems/:destinationSlug", destinations.findAllItemsForDestination);
 };

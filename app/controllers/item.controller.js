@@ -43,19 +43,6 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Items for a single destination from the database.
-exports.findAllForDestination = (req, res) => {
-    Item.getAllForDestination(req.body.destinationSlug, (err, data) => {
-        if (err) {
-            res.status(500).send({
-                message: err.message || "An error occured while retrieving items.",
-            });
-        } else {
-            res.send(data);
-        }
-    });
-};
-
 // Find a single Item with a itemSlug
 exports.findOne = (req, res) => {
     Item.findBySlug(req.params.itemSlug, (err, data) => {
