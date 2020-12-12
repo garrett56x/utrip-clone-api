@@ -6,6 +6,7 @@ const Item = function(item) {
     this.name = item.name;
     this.phrase = item.phrase;
     this.website = item.website;
+    this.phone = item.phone;
     this.location = item.location;
     this.lat = item.lat;
     this.lng = item.lng;
@@ -69,10 +70,10 @@ Item.getAllForDestination = (destinationSlug, result) => {
 
 Item.updateBySlug = (slug, item, result) => {
     sql.query(
-        `UPDATE Items SET name = ?, phrase = ?, website = ?, location = ?, lat = ?, lng = ?,
+        `UPDATE Items SET name = ?, phrase = ?, website = ?, phone = ?, location = ?, lat = ?, lng = ?,
         image = ?, category = ?, history = ?, entertainment = ?, art = ?, nature = ?,
         relaxation = ?, shopping = ?, cuisine = ?, destinationSlug = ? WHERE slug = ?`,
-        [item.name, item.phrase, item.website, item.location, item.lat, item.lng,
+        [item.name, item.phrase, item.website, item.phone, item.location, item.lat, item.lng,
         item.image, item.category, item.history, item.entertainment, item.art, item.nature,
         item.relaxation, item.shopping, item.cuisine, item.destinationSlug, slug],
         (err, res) => {

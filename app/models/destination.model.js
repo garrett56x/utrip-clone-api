@@ -43,8 +43,7 @@ Destination.findBySlug = (slug, result) => {
 };
 
 Destination.getAll = result => {
-    // TODO: remove ORDER BY. This is temporary to put Seattle first since it has the most items
-    sql.query("SELECT * FROM Destinations ORDER BY FIELD(slug, 'seattle-wa', 'bangkok-thailand')", (err, res) => {
+    sql.query("SELECT * FROM Destinations ORDER BY id ASC", (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
