@@ -29,11 +29,7 @@ require("./app/routes/destination.routes.js")(app);
 require("./app/routes/item.routes.js")(app);
 
 // set port, listen for requests
-app.set( 'port', ( process.env.PORT || 3000 ));
-app.listen(app.get( 'port' ), () => {
-    console.log(`Server is running on port ${app.get( 'port' )}`);
-});
-
-app.listen(app.get('port'), '0.0.0.0', () => {
-    console.log(`Server is running on port ${app.get('port')}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
 });
